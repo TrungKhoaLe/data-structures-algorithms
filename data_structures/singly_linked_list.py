@@ -13,12 +13,15 @@ class MyLinkedList:
         if index < 0:
             return -1
 
-        current = self.head 
+        current = self.head
         for _ in range(index):
             if current is None:
                 return -1
             current = current.next
-        return current.val
+        if current is None:
+            return -1
+        else:
+            return current.val
 
     def addAtHead(self, val: int) -> None:
         new_node = ListNode(val)
@@ -48,7 +51,10 @@ class MyLinkedList:
             prev = current
             current = current.next
         new_node.next = current
-        prev.next = new_node
+        if prev is not None:
+            prev.next = new_node
+        else:
+            self.head = new_node
 
     def deleteAtIndex(self, index: int) -> None:
         if index < 0:
@@ -60,5 +66,9 @@ class MyLinkedList:
                 return
             prev = current
             current = current.next
-
-        prev.next = current.next
+        if current is None:
+            return
+        if prev is not None:
+            prev.next = current.next
+        else:
+            self.head = current.next
