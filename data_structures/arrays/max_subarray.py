@@ -6,6 +6,8 @@ class Solution:
     This solution uses Kadane's algorithm. The algorithm looks for all
     positive contiguous segments of the array and keeps track of the
     maximum sum contiguous subarray among all positive segments.
+
+    Kadane's algorith is a dynamic programming algorithm.
     """
     def maxSubarray(self, nums: List[int]) -> int:
         # this variable is used to store the max sum of the 
