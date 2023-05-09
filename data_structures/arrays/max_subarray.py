@@ -16,14 +16,14 @@ class Solution:
         # this variable is used to store the max sun of the
         # contiguous subarray ending at the current index
         max_ending_here = 0
-        
+
         for num in nums:
             print(f"num: {num}\n")
             max_ending_here += num
             max_so_far = max(max_so_far, max_ending_here)
             print(f"max: {max_so_far}")
             max_ending_here = max(0, max_ending_here)
-        
+
         return max_so_far
 
 
