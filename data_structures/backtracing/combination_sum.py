@@ -8,14 +8,15 @@ class Solution:
         return self.result
 
     def _backtrack(self, index_position: int, candidates: List[int], subset: List[int], total: int, target: int):
-        if total == target:
+       if total == target:
             self.result.append(subset.copy())
             return
         if index_position >= len(candidates) or total > target:
             return
-
+        # go to the left of the decision tree
         subset.append(candidates[index_position])
         self._backtrack(index_position, candidates, subset, total + candidates[index_position], target)
+        # go to the right of the decision tree
         subset.pop()
         self._backtrack(index_position + 1, candidates, subset, total, target)
 
