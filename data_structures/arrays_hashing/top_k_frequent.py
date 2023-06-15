@@ -6,7 +6,10 @@ class Solution:
         
         # this hash table maps numbers to frequencies
         count = dict()
-        # this list of list is used to group frequencies together
+
+        # this list of list with positions corresponding to
+        # the frequencies and each position is a list containing
+        # the actual number
         freq = [[] for i in range(len(nums) + 1)]
 
         for num in nums:
@@ -17,7 +20,8 @@ class Solution:
 
         result = []
 
-        # loop backward over the freq list
+        # loop backward over the freq list to go
+        # from the most to the least frequent elements
         for i in range(len(freq) - 1, 0, -1):
             for n in freq[i]:
                 result.append(n)
@@ -26,7 +30,7 @@ class Solution:
                 
 
 if __name__ == '__main__':
-    example_1 = [1,1,1,2,2,3]
+    example_1 = [1, 1, 1, 2, 2, 3]
     k = 2
     s = Solution()
     print(s.topKFrequent(example_1, k))
