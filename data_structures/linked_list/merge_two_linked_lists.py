@@ -6,21 +6,10 @@ class ListNode:
         self.val = val
         self.next = next
 
-class LinkedList:
-    def __init__(self, head=None):
-        self.head = head
-
-    def printLinkedList(self):
-        temp = self.head
-        while temp:
-            print((temp.val), "->", end="")
-            temp = temp.next
-        print("")
-
 
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        dummy = ListNode
+        dummy = ListNode()
         tail = dummy
 
         while list1 and list2:
@@ -35,6 +24,7 @@ class Solution:
             # list1 still has values
             tail = list1
         elif list2:
+            # list2 still has values
             tail = list2
 
         return dummy.next
@@ -51,3 +41,4 @@ if __name__ == '__main__':
 
     s = Solution()
     merged_linked_list = s.mergeTwoLists(head1, head2)
+    print(merged_linked_list.val)
