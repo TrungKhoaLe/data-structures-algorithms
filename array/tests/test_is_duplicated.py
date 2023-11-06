@@ -1,4 +1,4 @@
-from is_duplicated import Solution
+from ..algorithms.is_duplicated import Solution
 import pytest
 
 
